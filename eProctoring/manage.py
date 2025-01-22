@@ -5,7 +5,22 @@ import sys
 
 
 def main():
-    """Run administrative tasks."""
+    """
+    Manage Django administrative tasks for the eProctoring application.
+    
+    This function sets up the Django environment and executes management commands
+    passed via the command line. It handles potential import errors related to
+    Django installation or virtual environment configuration.
+    
+    Raises:
+        ImportError: If Django cannot be imported, indicating potential installation
+        or configuration issues with the Django framework or Python environment.
+    
+    Example:
+        $ python manage.py runserver
+        $ python manage.py migrate
+        $ python manage.py createsuperuser
+    """
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'eProctoring.settings')
     try:
         from django.core.management import execute_from_command_line
