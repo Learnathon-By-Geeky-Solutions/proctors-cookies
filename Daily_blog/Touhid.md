@@ -27,7 +27,7 @@ Created a basic Django To Do app and then convert it into a web API using serial
 [Check the repository](https://github.com/TouhidulHaider/Django/tree/cf89ce71588b9245de067027731936fa4a6ab4e7/Django_Todo)
 
 
-> ## Date: January 31, 2025
+> ## Date: February-March, 2025
 ### Learning Overview
 Learned SQL, Database Management System and Django ORM
 <br>
