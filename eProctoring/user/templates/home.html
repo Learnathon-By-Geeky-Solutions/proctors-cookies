@@ -1,0 +1,223 @@
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+        <title>eProctoring</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		{% tailwind_css %}
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Arima:wght@400;700&display=swap" rel="stylesheet">
+        <link rel="icon" href="{% static 'icons/favicon.png' %}" type="image/png">
+        <style>
+            .rotate-15 {
+                transform: rotate(-15deg);
+            }
+            .font-arima {
+                font-family: 'Arima', cursive;
+            }
+            .font-open-sans {
+                font-family: 'Open Sans', sans-serif;
+            }
+            .lower {
+            position: relative;
+            top: 1px;
+        }
+        </style>
+	</head>
+
+	<body class="bg-white font-serif leading-normal tracking-normal">
+        <header id="head">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-20 py-4 sm:py-6 lg:py-8 text-[28px] sm:text-[36px] lg:text-[44px] font-arima font-bold flex justify-between items-center">
+                <div>
+                    <span class="rotate-15 inline-block lower text-[#2DDA92]">e</span><span class="text-[#0B412B]">Proctoring</span>
+                </div>
+                <div>
+                    <button class="bg-white border border-black text-[#0B412B] text-[14px] sm:text-[16px] lg:text-[18px] font-semibold font-sans px-4 sm:px-5 lg:px-6 py-1 rounded-3xl hover:bg-[#2DDA92] hover:text-white">Sign In</button>
+                </div>    
+            </div>
+        </header>
+        
+        <!-- <header id="head">
+            <div class="container mx-auto px-20 py-8 text-[44px] font-arima font-bold flex justify-between items-center">
+                <div>
+                    <span class="rotate-15 inline-block lower text-[#2DDA92]">e</span><span class="text-[#0B412B]">Proctoring</span>
+                </div>
+                <div>
+                    <button class="bg-white border border-black text-[#0B412B] text-[18px] font-semibold font-sans px-6 py-1 rounded-3xl hover:bg-[#2DDA92] hover:text-white">Sign In</button>
+                </div>    
+            </div>
+        </header> -->
+
+        <main class="container mx-auto px-20 py-10 text-center"> 
+            <h2 class="text-[72px] font-open-sans font-bold text-[#0B412B] mb-4">Effortless Online Exams for 
+                <span class="text-[#2DDA92]">Hosts</span> & <span class="text-[#2DDA92]">Participants</span>
+            </h2> 
+            <p class="text-[20px] font-open-sans mb-8">
+                On a mission to improve online exam experience for both the host and the participants with improved security and proctoring system using 
+                <span class="italic">deep learning.</span>
+            </p> 
+            <div class="flex justify-center mx-auto space-x-4"> 
+                <button class="group flex items-center justify-between gap-2 bg-white hover:bg-[#2DDA92] text-[#0B412B] hover:text-white font-bold font-open-sans px-8 py-4 rounded-full border border-[#2DDA92]">
+                <!-- <a class="group flex items-center justify-between gap-4 rounded-lg border border-indigo-600 bg-indigo-600 px-5 py-3 transition-colors hover:bg-transparent focus:outline-none focus:ring" href="#"> -->
+                    <span
+                        class="font-bold transition-colors group-hover:text-white group-active:text-[#0B412B]">
+                        Get started 
+                    </span>
+
+                    <span class="shrink-0 rounded-full border border-none bg-[#2DDA92] group-hover:bg-white p-2 text-black group-hover:text-[#2DDA92]">
+                        <svg
+                        class="size-5 rtl:rotate-180"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M17 8l4 4m0 0l-4 4m4-4H3"
+                        />
+                        </svg>
+                    </span>
+                </a> 
+                </button>
+                <button class="bg-[#2DDA92] hover:bg-white text-white hover:text-[#0B412B] font-bold font-open-sans px-8 py-4 rounded-full border border-[#2DDA92] active:text-[#2DDA92]">Request Demo</button> 
+            </div> 
+        </main>
+
+        <!-- Our Features Section --> 
+        <section class="w-full font-open-sans bg-[#dff9ef] pb-16"> 
+            <div class="text-3xl font-bold my-16 text-center leading-10 pt-16">Our Features</div> 
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mx-4 md:mx-20 lg:mx-40"> 
+            <div class="bg-transparent p-6 rounded h-32"> 
+                <img src="{% static 'icons/face_id.png' %}" alt="Face ID" class="h-12 w-12 mx-auto" />
+                <h4 class="text-xl text-center font-bold mb-2">User Verification <br>(Face ID)</h4> 
+                <p class="text-center">Verify your identity to ensure a secure exam experience.</p> 
+            </div> 
+            <div class="bg-transparent p-6 rounded">
+                <img src="{% static 'icons/webcam_img.png' %}" alt="Face Recognition" class="h-12 w-12 mx-auto" /> 
+                <h4 class="text-[20px] text-center font-bold mb-2">Webcam Image Capture</h4> 
+                <p class="text-center">Webcam capture ensures exam integrity and security.</p> 
+            </div> 
+            <div class="bg-transparent p-6 rounded"> 
+                <img src="{% static 'icons/webcam_activity.png' %}" alt="Screen Recording" class="h-12 w-12 mx-auto" />
+                <h4 class="text-[20px] text-center font-bold mb-2">Webcam Activation and Activity Detection</h4> 
+                <p class="text-center">Enable webcam for real-time detection.</p> 
+            </div> 
+            <div class="bg-transparent p-6 rounded"> 
+                <img src="{% static 'icons/multiple_face.png' %}" alt="Face Recognition" class="h-12 w-12 mx-auto" />
+                <h4 class="text-[20px] text-center font-bold mb-2">Face Recognition Services (multiple faces detected)</h4> 
+                <p class="text-center">Verify identity with Face Recognition.</p> 
+            </div> 
+            <div class="bg-transparent p-6 rounded"> 
+                <img src="{% static 'icons/screen_record.png' %}" alt="Screen Recording" class="h-12 w-12 mx-auto" />
+                <h4 class="text-[20px] text-center font-bold mb-2">Screen Recording</h4> 
+                <p class="text-center">Activate screen recording for enhanced security and fairness.</p> 
+            </div> 
+            <div class="bg-transparent p-6 rounded"> 
+                <img src="{% static 'icons/Screenshot.png' %}" alt="Screenshot" class="h-12 w-12 mx-auto" />
+                <h4 class="text-[20px] text-center font-bold mb-2">Screenshots taken when switching tabs</h4> 
+                <p class="text-center">Tab Switch Screenshots Ensuring Fairness.</p> 
+            </div> 
+            <div class="bg-transparent p-6 rounded"> 
+                <img src="{% static 'icons/audio_detection.png' %}" alt="Audio Detection" class="h-12 w-12 mx-auto" />
+                <h4 class="text-[20px] text-center font-bold mb-2">Audio (Noise) Detection</h4> 
+                <p class="text-center">Detect and Analyze Noise for Enhanced Exam Security.</p> 
+            </div> 
+            <div class="bg-transparent p-6 rounded"> 
+                <img src="{% static 'icons/fullscreen.png' %}" alt="Full Screen Exit" class="h-12 w-12 mx-auto" />
+                <h4 class="text-[20px] text-center font-bold mb-2">Full Screen Exit detection</h4> 
+                <p class="text-center">Tab Switch Screenshots Ensuring Fairness.</p> 
+            </div> 
+            <div class="bg-transparent p-6 rounded"> 
+                <img src="{% static 'icons/clipboard.png' %}" alt="Clipboard Activity" class="h-12 w-12 mx-auto" />
+                <h4 class="text-[20px] text-center font-bold mb-2">Clipboard Activity Detection</h4> 
+                <p class="text-center">Monitor Clipboard Activity to Ensure Exam Integrity.</p> 
+            </div> 
+            </div>
+            <div class="flex flex-wrap gap-10 justify-center mx-4 md:mx-20 lg:mx-40"> 
+            <div class="bg-transparent p-6 rounded"> 
+                <img src="{% static 'icons/suspicious.png' %}" alt="Suspicious Activity" class="h-12 w-12 mx-auto" />
+                <h4 class="text-[20px] text-center font-bold mb-2">Suspicious Activity Timeline</h4> 
+                <p class="text-center">Track and Highlight Suspicious Activity Over Time.</p> 
+            </div>
+            <div class="bg-transparent p-6 rounded"> 
+                <img src="{% static 'icons/report.png' %}" alt="Report" class="h-12 w-10 mx-auto" />
+                <h4 class="text-[20px] text-center font-bold mb-2">Automated Exam Report</h4> 
+                <p class="text-center">Automated integrity score and exam result</p> 
+            </div>
+            </div>
+        </section>
+
+        {% block content %}
+        {% endblock %}
+        
+        <!-- Footer --> 
+        <footer class="bg-[#0B412B] font-open-sans">
+            <div class="relative mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8 lg:pt-24">
+              <div class="absolute end-4 top-4 sm:end-6 sm:top-6 lg:end-8 lg:top-8">
+                <a
+                  class="inline-block rounded-full bg-[#2DDA92] p-2 text-white shadow transition hover:bg-white hover:text-black sm:p-3 lg:p-4"
+                  href="#head"
+                >
+                  <span class="sr-only">Back to top</span>
+          
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="size-5"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                </a>
+              </div>
+          
+              <div class="lg:flex lg:items-end lg:justify-between">
+                <div>
+                  <div class="flex justify-center text-teal-600 lg:justify-start">
+                    <img src="{% static 'icons/eProctoring_50.png' %}" alt="Logo" class="h-8" />
+                  </div>
+          
+                  <p class="mx-auto mt-6 max-w-md font-bold text-[20px] text-center leading-relaxed text-slate-100 lg:text-left">
+                    Proctoring online exams made easy. <br>Better Proctoring & Better Assessments.
+                  </p>
+                </div>
+          
+                <ul
+                  class="mt-12 flex flex-wrap justify-center gap-6 md:gap-8 lg:mt-0 lg:justify-end lg:gap-12"
+                >
+                  <li>
+                    <a class="text-slate-100 transition hover:text-gray-500" href="#"> About </a>
+                  </li>
+          
+                  <li>
+                    <a class="text-slate-100 transition hover:text-gray-500" href="#"> Services </a>
+                  </li>
+          
+                  <li>
+                    <a class="text-slate-100 transition hover:text-gray-500" href="#"> Projects </a>
+                  </li>
+          
+                  <li>
+                    <a class="text-slate-100 transition hover:text-gray-500" href="#"> Blog </a>
+                  </li>
+                </ul>
+              </div>
+          
+              <p class="mt-12 text-center text-sm text-amber-400 lg:text-right">
+                Copyright &copy; 2025. Proctors&Cookies <br>All rights reserved.
+              </p>
+            </div>
+          </footer>
+    </body>
+</html>
