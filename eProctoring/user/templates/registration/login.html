@@ -1,0 +1,66 @@
+{% extends 'home.html' %}
+{% load static tailwind_tags %}
+{% load static %}
+
+{% block head %}
+    {% tailwind_css %}
+{% endblock %}
+
+<!-- {% block body_class %}bg-white{% endblock %} -->
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<section class="flex items-center justify-center px-8 py-8 sm:px-12 lg:col-span-7 lg:px-16 lg:py-12 xl:col-span-6 mt-20">
+    <div class="max-w-xl lg:max-w-3xl">
+    <div class="relative -mt-16 block">
+        <div class="text-[32px] font-arima font-bold text-gray-900 sm:text-[40px] md:text-[44px]">
+            <span class="rotate-15 inline-block lower text-[#2DDA92]">e</span><span class="text-[#0B412B]">Proctoring</span>
+        </div>
+
+        <p class="mt-4 leading-relaxed text-[#0B412B] font-open-sans text-[18px] text-start">
+            Login to your account to access our proctoring services and manage your exams.
+        </p>
+    </div>
+
+    <form class="mt-8 grid grid-cols-6 gap-6" method="POST" action="{% url 'login' %}">
+        {% csrf_token %}
+        <div class="col-span-6">
+            <label for="username" class="block text-sm font-medium text-gray-700">Username</label>
+            <input type="text" id="username" name="username" required class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm">
+        </div>
+
+          <div class="col-span-6">
+            <label for="Password" class="block text-sm font-medium text-gray-700"> Password </label>
+  
+            <input
+              type="password"
+              id="Password"
+              name="password"
+              class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
+            />
+          </div>
+        <div class="col-span-6">
+            <input type="checkbox" id="check" class="size-5 rounded-md border-gray-200 bg-white shadow-sm focus:ring-indigo-500">
+            <label for="check" class="p-2">remember me</label>
+        </div>
+        <button type="submit" class="w-full bg-indigo-600 text-white py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Login</button>
+    </form>
+
+    <p class="mt-4 text-sm text-gray-500 ">
+        Don't have an account?
+        <a href="{% url 'register' %}" class="text-gray-700 underline">Create an account</a>.
+    </p>
+
+    {% if messages %}
+    <ul>
+        {% for message in messages %}
+            <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+{% endblock %}
+</div>
+</section>
+</html>
+  

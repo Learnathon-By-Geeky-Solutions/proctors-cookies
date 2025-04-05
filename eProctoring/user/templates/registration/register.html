@@ -1,0 +1,165 @@
+{% extends 'home.html' %}
+{% load static tailwind_tags %}
+{% load static %}
+
+{% block head %}
+    {% tailwind_css %}
+{% endblock %}
+
+{% block title %}Register{% endblock %}
+
+{% block content %}
+<section class="flex items-center justify-center px-8 py-8 sm:px-12 lg:col-span-7 lg:px-16 lg:py-12 xl:col-span-6 mt-20">
+    <div class="max-w-xl lg:max-w-3xl">
+    <div class="relative -mt-16 block">
+        <div class="text-[32px] font-arima font-bold text-gray-900 sm:text-[40px] md:text-[44px]">
+            <span class="rotate-15 inline-block lower text-[#2DDA92]">e</span><span class="text-[#0B412B]">Proctoring</span>
+        </div>
+
+        <p class="mt-4 leading-relaxed text-[#0B412B] font-open-sans text-[18px] text-start">
+            On a mission to improve online exam experience for both the host and the participants with improved security and proctoring system 
+        </p>
+    </div>
+
+      <form class="mt-8 grid grid-cols-6 gap-6" method="POST" action="{% url 'register' %}">
+  
+        {% csrf_token %}
+        <div class="col-span-6 sm:col-span-3">
+          <label for="FirstName" class="block text-sm font-medium text-gray-700">
+            First Name
+          </label>
+
+          <input
+            type="text"
+            id="FirstName"
+            name="first_name"
+            class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
+          />
+        </div>
+
+        <div class="col-span-6 sm:col-span-3">
+          <label for="LastName" class="block text-sm font-medium text-gray-700">
+            Last Name
+          </label>
+
+          <input
+            type="text"
+            id="LastName"
+            name="last_name"
+            class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
+          />
+        </div>
+
+        <div class="col-span-6">
+          <label for="Email" class="block text-sm font-medium text-gray-700"> Email </label>
+
+          <input
+            type="email"
+            id="Email"
+            name="email"
+            class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
+          />
+        </div>
+
+        <div class="col-span-6">
+          <label for="username" class="block text-sm font-medium text-gray-700">Username</label>
+          <input type="text" id="username" name="username" required class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm">
+      </div>
+
+        <div class="col-span-6 sm:col-span-3">
+          <label for="Password1" class="block text-sm font-medium text-gray-700"> Password </label>
+
+          <input
+            type="password"
+            id="Password1"
+            name="password1"
+            class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
+          />
+        </div>
+
+        <div class="col-span-6 sm:col-span-3">
+          <label for="PasswordConfirmation" class="block text-sm font-medium text-gray-700">
+            Password Confirmation
+          </label>
+
+          <input
+            type="password"
+            id="PasswordConfirmation"
+            name="password2"
+            class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
+          />
+        </div>
+
+        <!-- <div class="col-span-6">
+          <label for="MarketingAccept" class="flex gap-4">
+            <input
+              type="checkbox"
+              id="MarketingAccept"
+              name="marketing_accept"
+              class="size-5 rounded-md border-gray-200 bg-white shadow-sm"
+            />
+
+            <span class="text-sm text-gray-700">
+              I want to receive emails about events, product updates and company announcements.
+            </span>
+          </label>
+        </div> -->
+
+        <div class="col-span-6">
+          <p class="text-sm text-gray-500">
+            By creating an account, you agree to our
+            <a href="#" class="text-gray-700 underline"> terms and conditions </a>
+            and
+            <a href="#" class="text-gray-700 underline">privacy policy</a>.
+          </p>
+        </div>
+
+        <div class="col-span-6 sm:flex sm:items-center sm:gap-4">
+          <!-- <button
+            class="inline-block shrink-0 rounded-md border border-[#2dda8c] bg-[#2DDA92] px-12 py-3 text-sm  text-white font-bold transition hover:bg-transparent hover:text-[#2DDA92] focus:outline-none focus:ring active:text-[#0B412B]"
+          >
+            Create an account
+          </button> -->
+          <!-- <button
+            class="inline-block shrink-0 rounded-md border border-[#2dda8c] bg-[#2DDA92] px-12 py-3 text-sm  text-white font-medium hover:border-[#0B412B] focus:outline-none focus:ring-[#0B412B]"
+          >
+            Create an account
+          </button> -->
+        <button type="submit" class="inline-block shrink-0 rounded-md bg-[#2DDA92] px-12 py-3 text-sm text-white font-medium shadow-md hover:green-500 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-1 transition duration-300 ease-in-out">
+            Create an account
+        </button>
+
+          <p class="mt-4 text-sm text-gray-500 sm:mt-0">
+            Already have an account?
+            <a href="{% url 'login' %}" class="text-gray-700 underline">Log in</a>.
+          </p>
+        </div>
+      </form>
+    </div>
+  </section>
+
+
+  {% if messages %}
+    <ul>
+        {% for message in messages %}
+            <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+  {% endif %}
+
+
+  {% if form.errors %}
+    <div class="bg-red-100 text-red-800 p-4 mb-4 rounded">
+        <ul>
+            {% for field in form %}
+                {% if field.errors %}
+                    <li>{{ field.label }}: {{ field.errors|striptags }}</li>
+                {% endif %}
+            {% endfor %}
+            {% if form.non_field_errors %}
+                <li>{{ form.non_field_errors|striptags }}</li>
+            {% endif %}
+        </ul>
+    </div>
+{% endif %}
+{% endblock %}
