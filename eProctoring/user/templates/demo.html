@@ -1,0 +1,23 @@
+{% extends 'home.html' %}
+{% load static tailwind_tags %}
+{% load static %}
+    
+{% block head %}
+    {% tailwind_css %}
+{% endblock %}
+
+
+{% block title %}Demo{% endblock %}
+
+{% block content %}
+<section class="flex justify-center py-8 sm:px-12 lg:col-span-7 lg:px-16 lg:py-12 xl:col-span-6 mt-20 text-xl text-center font-bold text-[#0B412B]">
+    <div class="max-w-xl lg:max-w-3xl">
+        <div class="relative -mt-16 block mb-8">
+            <div class="text-[32px] font-arima font-bold text-gray-900 sm:text-[40px] md:text-[44px]">
+                <span class="rotate-15 inline-block lower text-[#2DDA92]">e</span><span class="text-[#0B412B]">Proctoring</span>
+            </div>
+        </div>
+    <h2>We are currently working on it! Please be patient.</h2>
+    <p>We are working hard to bring you the best experience possible. Stay tuned for updates!</p>
+</section>
+    {% endblock %}

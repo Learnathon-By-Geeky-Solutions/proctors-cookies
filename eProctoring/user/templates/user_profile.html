@@ -1,0 +1,72 @@
+{% extends 'home.html'%}
+{% load static tailwind_tags %}
+{% load static %}
+
+{% block head %}
+    {% tailwind_css %}
+{% endblock %}
+
+{% block title %}Profile{% endblock %}
+
+{% block content %}
+
+<nav class="bg-white border-gray-200">
+  <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+    <div class="text-[36px] font-arima font-bold">
+      <span class="rotate-15 inline-block lower text-[#2DDA92]">e</span><span class="text-[#0B412B]">Proctoring</span>
+    </div>
+  <div class="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+      <button type="button" class="flex text-sm bg-gray-800 rounded-full md:me-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
+        <span class="sr-only">Open user menu</span>
+        <img class="w-8 h-8 rounded-full" src="/docs/images/people/profile-picture-3.jpg" alt="TH">
+      </button>
+      <!-- Dropdown menu -->
+      <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow-sm dark:bg-gray-700 dark:divide-gray-600" id="user-dropdown">
+        <div class="px-4 py-3">
+          <span class="block text-sm text-gray-900 dark:text-white">{{ user_profile.username }}</span>
+          <span class="block text-sm  text-gray-500 truncate dark:text-gray-400">{{ user_profile.email }}</span>
+        </div>
+        <ul class="py-2" aria-labelledby="user-menu-button">
+          <li>
+            <form method="POST" action="{% url 'logout' %}">
+              {% csrf_token %}
+              <button
+                type="submit"
+                class="flex w-full items-center gap-2 rounded-lg px-4 py-2 text-sm text-red-700 hover:bg-red-50"
+                role="menuitem"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="size-4"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M9 15 3 9m0 0 6-6M3 9h12a6 6 0 0 1 0 12h-3"
+                  />
+                </svg>
+    
+                Logout
+              </button>
+            </form>    
+          </li>
+        </ul>
+      </div>
+      
+  </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+  <h1>Profile of {{ user_profile.username }}</h1>
+  <p>Email: {{ user_profile.email }}</p>
+  <p>First Name: {{ user_profile.first_name }}</p>
+  <p>Last Name: {{ user_profile.last_name }}</p>
+
+{% endblock %}
