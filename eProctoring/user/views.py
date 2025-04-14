@@ -51,7 +51,7 @@ def register_view(request):
     return render(request, 'registration/register.html', {'form': form})
 
 
-@require_http_methods(["GET", "POST"])
+@require_http_methods(["POST"])
 def logout_view(request):
     logout(request)
     messages.success(request, "You have successfully logged out.")
