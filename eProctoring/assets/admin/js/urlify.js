@@ -190,7 +190,7 @@
         s = s.substring(0, num_chars);
     
         // Remove trailing hyphens
-        return s.replace(/-+$/g, '');
+        return s.replace(/-+$/, '');
     }
     window.URLify = URLify;
 }
