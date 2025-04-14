@@ -7,11 +7,12 @@ from django.shortcuts import get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib.sessions.models import Session
 
-
+@require_http_methods(["GET", "POST"])
 def home(request):
     return render(request, 'home.html')
 
 
+@require_http_methods(["GET", "POST"])
 def login_view(request):
     if request.method == 'POST':
         username = request.POST.get('username')
@@ -34,7 +35,7 @@ def login_view(request):
 
 
 
-
+@require_http_methods(["GET", "POST"])
 def register_view(request):
     if request.method == 'POST':
         form = RegisterForm(request.POST)
@@ -50,13 +51,14 @@ def register_view(request):
     return render(request, 'registration/register.html', {'form': form})
 
 
-
+@require_http_methods(["GET", "POST"])
 def logout_view(request):
     logout(request)
     messages.success(request, "You have successfully logged out.")
     return redirect('login')
 
 
+@require_http_methods(["GET", "POST"])
 def demo_view(request):
     return render(request, 'demo.html')
 

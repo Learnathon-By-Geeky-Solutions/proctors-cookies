@@ -146,24 +146,51 @@
     }
 
 
+    // function URLify(s, num_chars, allowUnicode) {
+    //     // changes, e.g., "Petty theft" to "petty-theft"
+    //     if (!allowUnicode) {
+    //         s = downcode(s);
+    //     }
+    //     s = s.toLowerCase(); // convert to lowercase
+    //     // if downcode doesn't hit, the char will be stripped here
+    //     if (allowUnicode) {
+    //         // Keep Unicode letters including both lowercase and uppercase
+    //         // characters, whitespace, and dash; remove other characters.
+    //         s = XRegExp.replace(s, XRegExp('[^-_\\p{L}\\p{N}\\s]', 'g'), '');
+    //     } else {
+    //         s = s.replace(/[^-\w\s]/g, ''); // remove unneeded chars
+    //     }
+    //     s = s.replace(/^\s+|\s+$/g, ''); // trim leading/trailing spaces
+    //     s = s.replace(/[-\s]+/g, '-'); // convert spaces to hyphens
+    //     s = s.substring(0, num_chars); // trim to first num_chars chars
+    //     return s.replace(/-+$/g, ''); // trim any trailing hyphens
+    // }
+
     function URLify(s, num_chars, allowUnicode) {
-        // changes, e.g., "Petty theft" to "petty-theft"
+        // Limit input length to prevent excessive computation
+        s = s.substring(0, 1000); // Adjust the limit as needed
+    
         if (!allowUnicode) {
             s = downcode(s);
         }
-        s = s.toLowerCase(); // convert to lowercase
-        // if downcode doesn't hit, the char will be stripped here
+        s = s.toLowerCase(); // Convert to lowercase
+    
         if (allowUnicode) {
-            // Keep Unicode letters including both lowercase and uppercase
-            // characters, whitespace, and dash; remove other characters.
-            s = XRegExp.replace(s, XRegExp('[^-_\\p{L}\\p{N}\\s]', 'g'), '');
+            // Use a safer regex for Unicode handling
+            s = XRegExp.replace(s, XRegExp('[^-_\\p{L}\\p{N}\\s]+', 'g'), '');
         } else {
-            s = s.replace(/[^-\w\s]/g, ''); // remove unneeded chars
+            // Remove unneeded characters
+            s = s.replace(/[^-\w\s]+/g, '');
         }
-        s = s.replace(/^\s+|\s+$/g, ''); // trim leading/trailing spaces
-        s = s.replace(/[-\s]+/g, '-'); // convert spaces to hyphens
-        s = s.substring(0, num_chars); // trim to first num_chars chars
-        return s.replace(/-+$/g, ''); // trim any trailing hyphens
+    
+        // Trim leading/trailing spaces and replace spaces/dashes efficiently
+        s = s.trim().replace(/[\s-]+/g, '-');
+    
+        // Trim to the first num_chars characters
+        s = s.substring(0, num_chars);
+    
+        // Remove trailing hyphens
+        return s.replace(/-+$/, '');
     }
     window.URLify = URLify;
 }
