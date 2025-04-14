@@ -22,7 +22,6 @@
     </div>
 
       <form class="mt-8 grid grid-cols-6 gap-6" method="POST" action="{% url 'register' %}">
-  
         {% csrf_token %}
         <div class="col-span-6 sm:col-span-3">
           <label for="FirstName" class="block text-sm font-medium text-gray-700">
@@ -90,20 +89,6 @@
           />
         </div>
 
-        <!-- <div class="col-span-6">
-          <label for="MarketingAccept" class="flex gap-4">
-            <input
-              type="checkbox"
-              id="MarketingAccept"
-              name="marketing_accept"
-              class="size-5 rounded-md border-gray-200 bg-white shadow-sm"
-            />
-
-            <span class="text-sm text-gray-700">
-              I want to receive emails about events, product updates and company announcements.
-            </span>
-          </label>
-        </div> -->
 
         <div class="col-span-6">
           <p class="text-sm text-gray-500">
@@ -115,16 +100,7 @@
         </div>
 
         <div class="col-span-6 sm:flex sm:items-center sm:gap-4">
-          <!-- <button
-            class="inline-block shrink-0 rounded-md border border-[#2dda8c] bg-[#2DDA92] px-12 py-3 text-sm  text-white font-bold transition hover:bg-transparent hover:text-[#2DDA92] focus:outline-none focus:ring active:text-[#0B412B]"
-          >
-            Create an account
-          </button> -->
-          <!-- <button
-            class="inline-block shrink-0 rounded-md border border-[#2dda8c] bg-[#2DDA92] px-12 py-3 text-sm  text-white font-medium hover:border-[#0B412B] focus:outline-none focus:ring-[#0B412B]"
-          >
-            Create an account
-          </button> -->
+          
         <button type="submit" class="inline-block shrink-0 rounded-md bg-[#2DDA92] px-12 py-3 text-sm text-white font-medium shadow-md hover:green-500 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-1 transition duration-300 ease-in-out">
             Create an account
         </button>
